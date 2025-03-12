@@ -19,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full w-full">
       <head>
         <link rel="icon" href="/whirlpool.png" />
       </head>
-      <body className={`${jetBrainsMono.variable} antialiased`}>
-        <header className="flex justify-between items-center p-4">
+      <body
+        className={`${jetBrainsMono.variable} antialiased flex flex-col h-full w-full`}
+      >
+        <header className="flex justify-between items-center p-4 border-b-2 border-foreground">
           <Link href="/" className="flex flex-row items-center gap-2">
             <Image
               src="/whirlpool.png"
@@ -35,7 +37,7 @@ export default function RootLayout({
             <h1>Whirlpool</h1>
           </Link>
         </header>
-        {children}
+        <div className="flex flex-row h-full w-full">{children}</div>
       </body>
     </html>
   );
