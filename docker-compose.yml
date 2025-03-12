@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "29009:29009"
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "29008:6379"
+    volumes:
+      - ./db/data:/data
+    command: redis-server --appendonly yes
+    restart: always
