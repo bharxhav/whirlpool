@@ -34,7 +34,7 @@ export default function RootLayout({
               width={32}
               height={32}
             />
-            <h1>Whirlpool</h1>
+            <h1 className="text-2xl">Whirlpool</h1>
           </Link>
         </header>
         <div className="flex flex-row h-full w-full">{children}</div>
